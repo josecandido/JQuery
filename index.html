@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Manejo Secuencial de Imagenes</title>
+<style>
+li {
+    float:  left;
+    list-style: none;
+    margin: 0 25px 25px 0;
+display: none;
+}
+</style>
+</head>
+<body>
+<a href="#" id="mostrar">Mostrar Imagenes</a>  /  <a href="#" id="ocultar">Ocultar Imagenes</a>
+    <ul>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/200px-HTML5_logo_and_wordmark.svg.png"></li>
+        <li><img src="https://platform-user-uploads.s3.amazonaws.com/blog/category/logo/364/CSS.png"></li>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/200px-PHP-logo.svg.png"></li>
+        <li><img src="http://blog.falafel.com/wp-content/uploads/2015/01/JS6_Logo.png"></li>
+        <li><img src="https://qph.ec.quoracdn.net/main-thumb-t-3593-200-IREt27SfrBZ6vAefdRVNgydruzE3p4uU.jpeg"></li>
+        <li><img src="https://1.bp.blogspot.com/-_AP1dO6RAbI/V82aJ-TrJnI/AAAAAAAAFd0/xzbzw6ZC2T4G0is4AFny12K0mJJRXLZIACLcB/s1600/struts.png"></li>
+        <li><img src="http://www.techmoount.com/images/hibernate.jpg"></li>
+        <li><img src="https://www.tecnoquest.com/media/k2/items/cache/cc947675ce0ac0c98617f27425843c35_XS.jpg"></li>
+    </ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var lista = $('li').hide();
+    $('#mostrar').click(function() {
+            var i = 0;
+            (function mostrarimg() {
+                lista.eq(i++).fadeIn(400, mostrarimg);
+            })();
+    });
+    $('#ocultar').click(function() {
+            var i = $('li').size();
+            (function ocultarimg() {
+                lista.eq(--i).fadeOut(200, ocultarimg);
+            })();
+    });
+});
+</script>
+</body>
+</html>
